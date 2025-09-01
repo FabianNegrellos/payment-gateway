@@ -10,7 +10,16 @@
   "scripts": {
     "dev": "turbo run dev --parallel",
     "build": "turbo run build",
-    "lint": "turbo run lint"
+    "lint": "turbo run lint",
+    "db:migrate": "yarn workspace @payment-gateway/db sequelize-cli db:migrate",
+    "db:migrate:prod": "yarn workspace @payment-gateway/db sequelize-cli db:migrate --env production",
+    "db:migrate:test": "yarn workspace @payment-gateway/db sequelize-cli db:migrate --env test",
+    "db:migrate:undo": "yarn workspace @payment-gateway/db sequelize-cli db:migrate:undo",
+    "db:migrate:undo:prod": "yarn workspace @payment-gateway/db sequelize-cli db:migrate:undo --env production",
+    "db:migrate:undo:test": "yarn workspace @payment-gateway/db sequelize-cli db:migrate:undo -- test",
+    "db:migrate:undo:all": "yarn workspace @payment-gateway/db sequelize-cli db:migrate:undo:all",
+    "db:migrate:undo:all:prod": "yarn workspace @payment-gateway/db sequelize-cli db:migrate:undo:all --env production",
+    "db:migrate:undo:all:test": "yarn workspace @payment-gateway/db sequelize-cli db:migrate:undo:all --env test"
   },
   "devDependencies": {
     "turbo": "^2.5.6"
